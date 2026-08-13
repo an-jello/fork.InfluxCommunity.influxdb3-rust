@@ -362,11 +362,11 @@ fn escape_with(input: &str, needs_escape: fn(u8) -> bool) -> Cow<'_, str> {
 }
 
 fn measurement_needs_escape(b: u8) -> bool {
-    matches!(b, b',' | b' ')
+    matches!(b, b',' | b' ' |  b'\n' | b'\r')
 }
 
 fn tag_needs_escape(b: u8) -> bool {
-    matches!(b, b',' | b'=' | b' ')
+    matches!(b, b',' | b'=' | b' ' | b'\n' | b'\r')
 }
 
 /// Escape a measurement name (commas and spaces). Shared with the DataFrame
